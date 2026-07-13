@@ -1,0 +1,164 @@
+/* ==========================================
+   SIDEBAR — Premium SaaS style
+   Light mode: white card with purple accents
+   Dark mode: dark card
+========================================== */
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #ede9fe;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px 16px;
+  box-shadow: 2px 0 12px rgba(139, 92, 246, 0.06);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  transition: background 300ms ease, border-color 300ms ease;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px;
+  margin-bottom: 32px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #FF4FA3, #B388FF);
+  font-size: 22px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(255, 79, 163, 0.3);
+}
+
+.logo h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1F2937;
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  font-size: 12px;
+  color: #8B5CF6;
+  font-weight: 500;
+}
+
+/* Menu */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 11px 16px;
+  border-radius: 12px;
+  color: #6B7280;
+  font-size: 14.5px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 250ms ease, color 250ms ease, transform 200ms ease;
+  text-align: left;
+  text-decoration: none;
+}
+
+.menu-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.menu-item:hover {
+  background: #f3f0ff;
+  color: #7C4DFF;
+  transform: translateX(3px);
+}
+
+.menu-item.active {
+  background: linear-gradient(135deg, #FF4FA3, #B388FF);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(255, 79, 163, 0.3);
+}
+
+.menu-item.active:hover {
+  transform: none;
+}
+
+/* Logout */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  color: #EF4444;
+  font-size: 14.5px;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 250ms ease, color 250ms ease;
+  text-align: left;
+}
+
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: #DC2626;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .sidebar {
+  background: #161A23;
+  border-right-color: rgba(255,255,255,0.08);
+  box-shadow: 2px 0 12px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .logo h2 {
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .menu-item {
+  color: #94A3B8;
+}
+
+[data-theme="dark"] .menu-item:hover {
+  background: rgba(124, 77, 255, 0.12);
+  color: #C4B5FD;
+}
+
+[data-theme="dark"] .menu-item.active {
+  background: linear-gradient(135deg, #FF4FA3, #B388FF);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .logout-btn {
+  color: #F87171;
+}
+
+[data-theme="dark"] .logout-btn:hover {
+  background: rgba(239, 68, 68, 0.12);
+  color: #FCA5A5;
+}

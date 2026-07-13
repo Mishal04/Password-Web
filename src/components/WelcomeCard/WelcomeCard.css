@@ -1,0 +1,64 @@
+.welcome-card{
+    background:#fff;
+    border-radius:24px;
+    padding:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+    overflow:hidden;
+    min-height:260px;
+}
+
+.welcome-left{
+    max-width:55%;
+}
+
+.welcome-left h1{
+    font-size:36px;
+    color:#333;
+    margin-bottom:18px;
+    line-height:1.2;
+}
+
+.welcome-left span{
+    background:linear-gradient(135deg,#ff71b7,#c7b6ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.welcome-left p{
+    color:#666;
+    line-height:1.8;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+.add-password-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:none;
+    padding:15px 30px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ff71b7,#c7b6ff);
+    color:#fff;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.add-password-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(199,182,255,.4);
+}
+
+.welcome-right{
+    width:320px;
+    height:220px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
