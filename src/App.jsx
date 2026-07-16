@@ -3,12 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
 import Dashboard from "./pages/Dashboard";
 import Vault from "./pages/Vault";
-import Favorites from "./pages/Favorites";
-import Categories from "./pages/Categories";
 import Generator from "./pages/Generator";
-import Security from "./pages/Security";
+import SecureNotes from "./pages/SecureNotes";
 import Activity from "./pages/Activity";
-import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -45,19 +42,10 @@ function App() {
       />
 
       <Route
-        path="/favorites"
+        path="/secure-notes"
         element={
           <ProtectedRoute>
-            <Favorites />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/categories"
-        element={
-          <ProtectedRoute>
-            <Categories />
+            <SecureNotes />
           </ProtectedRoute>
         }
       />
@@ -72,28 +60,10 @@ function App() {
       />
 
       <Route
-        path="/security"
-        element={
-          <ProtectedRoute>
-            <Security />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
         path="/activity"
         element={
           <ProtectedRoute>
             <Activity />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/settings"
-        element={
-          <ProtectedRoute>
-            <Settings />
           </ProtectedRoute>
         }
       />

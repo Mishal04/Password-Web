@@ -1,9 +1,23 @@
 import "./VaultToolbar.css";
-import {
-  FiSearch,
-  FiPlus,
-  FiFilter,
-} from "react-icons/fi";
+import { FiSearch, FiPlus, FiArrowDown } from "react-icons/fi";
+
+const CATEGORIES = [
+  "All Categories",
+  "Social",
+  "Email",
+  "Work",
+  "Shopping",
+  "Banking",
+  "Entertainment",
+  "Development",
+  "Other",
+];
+
+const SORT_OPTIONS = [
+  { value: "latest", label: "Latest" },
+  { value: "oldest", label: "Oldest" },
+  { value: "az",     label: "A → Z"  },
+];
 
 function VaultToolbar({
   onAddPassword,
@@ -11,6 +25,8 @@ function VaultToolbar({
   onSearchChange,
   categoryFilter,
   onCategoryChange,
+  sortOrder,
+  onSortChange,
 }) {
   return (
     <section className="vault-toolbar">
@@ -22,34 +38,41 @@ function VaultToolbar({
           placeholder="Search passwords..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
+          aria-label="Search passwords"
         />
       </div>
 
-      {/* Actions */}
+      {/* Filters + Add */}
       <div className="toolbar-actions">
+        {/* Category */}
         <select
           value={categoryFilter}
           onChange={(e) => onCategoryChange(e.target.value)}
+          aria-label="Filter by category"
         >
-          <option>All Categories</option>
-          <option>Personal</option>
-          <option>Social</option>
-          <option>Work</option>
-          <option>Banking</option>
-          <option>Shopping</option>
-          <option>Entertainment</option>
-          <option>Other</option>
+          {CATEGORIES.map((c) => (
+            <option key={c}>{c}</option>
+          ))}
         </select>
 
-        <button className="filter-btn">
-          <FiFilter />
-          Latest
-        </button>
+        {/* Sort */}
+        <div className="toolbar-sort">
+          <FiArrowDown className="toolbar-sort__icon" />
+          <select
+            value={sortOrder}
+            onChange={(e) => onSortChange(e.target.value)}
+            aria-label="Sort passwords"
+          >
+            {SORT_OPTIONS.map((o) => (
+              <option key={o.value} value={o.value}>
+                {o.label}
+              </option>
+            ))}
+          </select>
+        </div>
 
-        <button
-          className="add-btn"
-          onClick={onAddPassword}
-        >
+        {/* Add button */}
+        <button className="add-btn" onClick={onAddPassword}>
           <FiPlus />
           Add Password
         </button>

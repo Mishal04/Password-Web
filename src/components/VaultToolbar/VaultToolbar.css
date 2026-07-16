@@ -67,7 +67,42 @@
   transition: background 300ms ease, border-color 300ms ease;
 }
 
-.filter-btn,
+/* Sort wrapper */
+.toolbar-sort {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar-sort__icon {
+  position: absolute;
+  left: 12px;
+  color: #8B5CF6;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.toolbar-sort select {
+  height: 46px;
+  padding: 0 18px 0 32px;
+  border: 1px solid #ede9fe;
+  background: #f5f3ff;
+  border-radius: 12px;
+  outline: none;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 300ms ease, border-color 300ms ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.toolbar-sort select:focus {
+  border-color: #B388FF;
+}
+
 .add-btn {
   height: 46px;
   padding: 0 20px;
@@ -80,19 +115,6 @@
   font-size: 14.5px;
   font-weight: 600;
   transition: all 250ms ease;
-}
-
-.filter-btn {
-  background: #f5f3ff;
-  border: 1px solid #ede9fe;
-  color: var(--text-primary);
-}
-
-.filter-btn:hover {
-  background: #ede9fe;
-}
-
-.add-btn {
   color: #fff;
   background: linear-gradient(135deg, #FF4FA3, #B388FF);
   box-shadow: 0 4px 12px rgba(255, 79, 163, 0.25);
@@ -123,9 +145,15 @@
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-[data-theme="dark"] .toolbar-actions select option {
+[data-theme="dark"] .toolbar-actions select option,
+[data-theme="dark"] .toolbar-sort select option {
   background: #1C2230;
   color: #F8FAFC;
+}
+
+[data-theme="dark"] .toolbar-sort select {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .filter-btn {

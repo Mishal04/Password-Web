@@ -1,0 +1,120 @@
+/* ===================================================
+   Vault page — My Vault
+   Uses the same .dashboard layout shell as Dashboard
+=================================================== */
+
+/* Page header section */
+.vault-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.vault-page-header__left h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.vault-page-header__left p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.vault-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(139, 92, 246, 0.1);
+  color: #8B5CF6;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+[data-theme="dark"] .vault-count-badge {
+  background: rgba(196, 181, 253, 0.1);
+  color: #C4B5FD;
+  border-color: rgba(196, 181, 253, 0.2);
+}
+
+/* ── Cards Grid ── */
+.vault-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+
+/* ── Loading skeleton ── */
+.vault-loading {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+
+.vault-skeleton-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.08);
+  border-radius: 20px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: skeletonPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.5; }
+}
+
+.vault-skeleton-card__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vault-skeleton__circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.1);
+  flex-shrink: 0;
+}
+
+.vault-skeleton__line {
+  height: 14px;
+  border-radius: 7px;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.vault-skeleton__line--short { width: 60%; }
+.vault-skeleton__line--med   { width: 80%; }
+.vault-skeleton__line--full  { width: 100%; }
+.vault-skeleton__line--xs    { width: 40%; }
+
+[data-theme="dark"] .vault-skeleton-card {
+  background: var(--card-bg);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .vault-skeleton__circle,
+[data-theme="dark"] .vault-skeleton__line {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Results summary ── */
+.vault-results-info {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  padding: 0 2px;
+}

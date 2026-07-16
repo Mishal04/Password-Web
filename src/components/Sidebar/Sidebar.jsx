@@ -1,16 +1,6 @@
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import {
-  FiHome,
-  FiLock,
-  FiStar,
-  FiFolder,
-  FiSettings,
-  FiLogOut,
-  FiShield,
-  FiActivity,
-  FiKey,
-} from "react-icons/fi";
+import { FiHome, FiLock, FiFileText, FiKey, FiActivity, FiLogOut } from "react-icons/fi";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -32,61 +22,25 @@ function Sidebar() {
       </div>
 
       <nav className="sidebar-menu">
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
+        <NavLink to="/dashboard" className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}>
           <FiHome />
           <span>Dashboard</span>
         </NavLink>
-        <NavLink
-          to="/vault"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
+        <NavLink to="/vault" className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}>
           <FiLock />
           <span>My Vault</span>
         </NavLink>
-        <NavLink
-          to="/favorites"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
-          <FiStar />
-          <span>Favorites</span>
+        <NavLink to="/secure-notes" className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}>
+          <FiFileText />
+          <span>Secure Notes</span>
         </NavLink>
-        <NavLink
-          to="/categories"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
-          <FiFolder />
-          <span>Categories</span>
-        </NavLink>
-        <NavLink
-          to="/generator"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
+        <NavLink to="/generator" className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}>
           <FiKey />
-          <span>Generator</span>
+          <span>Password Generator</span>
         </NavLink>
-        <NavLink
-          to="/security"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
-          <FiShield />
-          <span>Security Center</span>
-        </NavLink>
-        <NavLink
-          to="/activity"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
+        <NavLink to="/activity" className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}>
           <FiActivity />
           <span>Activity</span>
-        </NavLink>
-        <NavLink
-          to="/settings"
-          className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-        >
-          <FiSettings />
-          <span>Settings</span>
         </NavLink>
       </nav>
 
