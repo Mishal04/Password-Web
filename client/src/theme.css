@@ -1,0 +1,50 @@
+/* src/theme.css */
+/* Premium SaaS theme variables */
+:root {
+  /* Light palette */
+  --bg-primary: #FAFAFC;
+  --sidebar-bg: #FFFFFF; /* not used directly, kept for completeness */
+  --card-bg: #FFFFFF;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+
+  /* Hero gradient (soft lavender) */
+  --hero-gradient: linear-gradient(135deg, #FF71B7, #C7B6FF);
+
+  /* Accent gradients for buttons */
+  --color-primary-pink: #FF4FA3;
+  --color-primary-lavender: #B388FF;
+  --gradient-add-primary: linear-gradient(135deg, var(--color-primary-pink), var(--color-primary-lavender));
+  --gradient-add-secondary: linear-gradient(135deg, #7C4DFF, #5E60FF); /* purple → indigo */
+
+  /* Security badge */
+  --color-sec-success: #22C55E;
+
+  /* Tokens */
+  --radius: 28px; /* rounded corners */
+  --spacing-lg: 32px;
+  --spacing-md: 16px;
+  --spacing-sm: 8px;
+  --shadow-elevate: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-glass: rgba(255,255,255,0.12) 0 1px 3px;
+  --glass-bg: rgba(255,255,255,0.12);
+  --blob-opacity: 0.12;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0F1117;
+  --sidebar-bg: #161A23;
+  --card-bg: #1C2230;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --hero-gradient: linear-gradient(135deg, #7C4DFF, #5E60FF); /* dark purple gradient */
+  --blob-opacity: 0.2;
+  --glass-bg: rgba(255,255,255,0.06);
+  --border-color: rgba(255,255,255,0.08);
+  --shadow-elevate: 0 4px 12px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Global transition for smooth theme changes */
+* {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}

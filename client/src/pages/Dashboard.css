@@ -1,0 +1,10 @@
+.dashboard{
+    display:flex;
+    min-height:100vh;
+    background: var(--bg-primary);
+}
+
+.dashboard-content{
+    flex:1;
+    padding:40px;
+}

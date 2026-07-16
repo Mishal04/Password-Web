@@ -1,0 +1,232 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#FFF5FA,#F4EDFF);
+}
+
+.auth-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    position:relative;
+    width:900px;
+    max-width:100%;
+    min-height:600px;
+    background:#fff;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+}
+
+/* ================= Forms ================= */
+
+.form-container{
+    position:absolute;
+    top:0;
+    height:100%;
+    width:50%;
+    transition:all .6s ease-in-out;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+}
+
+.form-container form{
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.form-container h1{
+    margin-bottom:10px;
+    color:#333;
+}
+
+.form-container span{
+    font-size:13px;
+    color:#666;
+    margin:15px 0;
+}
+
+.form-container input{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:none;
+    border-radius:10px;
+    background:#F4F4F4;
+    outline:none;
+}
+
+.form-container button{
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ff71b7,#c7b6ff);
+    color:#fff;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.login-container{
+    left:0;
+    z-index:2;
+    opacity:1;
+}
+
+.register-container{
+    left:0;
+    z-index:1;
+    opacity:0;
+}
+
+.social-icons{
+    display:flex;
+    gap:10px;
+    margin:15px 0;
+}
+
+.social-icons a{
+    width:40px;
+    height:40px;
+    border:1px solid #ddd;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:#555;
+}
+
+.forgot{
+    margin-top:10px;
+    text-decoration:none;
+    color:#666;
+    font-size:14px;
+}
+
+/* ================= Overlay ================= */
+
+.toggle-container{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:50%;
+    height:100%;
+    overflow:hidden;
+    border-radius:150px 0 0 150px;
+    z-index:1000;
+    transition:all .6s ease-in-out;
+}
+
+.toggle{
+    position:relative;
+    left:-100%;
+    width:200%;
+    height:100%;
+    background:linear-gradient(135deg,#ff71b7,#c7b6ff);
+    transition:all .6s ease-in-out;
+}
+
+.toggle-panel{
+    position:absolute;
+    width:50%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:40px;
+}
+
+.toggle-panel h1{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.toggle-panel p{
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.toggle-panel button{
+    padding:14px 40px;
+    border:2px solid #fff;
+    background:transparent;
+    color:#fff;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.toggle-left{
+    left:0;
+}
+
+.toggle-right{
+    right:0;
+}
+/* ================= ACTIVE ANIMATION ================= */
+
+.container.active .login-container{
+    transform:translateX(100%);
+    opacity:0;
+}
+
+.container.active .register-container{
+    transform:translateX(100%);
+    opacity:1;
+    z-index:5;
+}
+
+.container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius:0 150px 150px 0;
+}
+
+.container.active .toggle{
+    transform: translateX(50%);
+}
+
+
+/* ================= GIRL VIDEO ================= */
+
+.girl-animation{
+    position:absolute;
+    left:200px;
+    bottom:140px;
+    width:350px;
+    z-index:50;
+    pointer-events:none;
+    transition:1s ease;
+}
+
+.girl-video{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    background:transparent;
+}
+
+/* Move girl toward signup */
+
+.container.active .girl-animation{
+    transform:translateX(280px);
+}
