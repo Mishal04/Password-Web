@@ -166,6 +166,18 @@ function PasswordTable({ passwords = [], onActionSuccess }) {
                         alt=""
                         className="table-website-icon"
                         onError={(e) => {
+                          const info = getWebsiteInfo(item.website);
+                          // Stage 1 → Google S2
+                          if (info.faviconFallback && e.target.src !== info.faviconFallback) {
+                            e.target.src = info.faviconFallback;
+                            return;
+                          }
+                          // Stage 2 → site's own /favicon.ico
+                          if (info.faviconDirect && e.target.src !== info.faviconDirect) {
+                            e.target.src = info.faviconDirect;
+                            return;
+                          }
+                          // Stage 3 → hide
                           e.target.style.display = "none";
                         }}
                       />

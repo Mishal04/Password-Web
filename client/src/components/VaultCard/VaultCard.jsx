@@ -92,6 +92,17 @@ function VaultCard({ item, onActionSuccess, onToast, onEdit }) {
               alt={info.title}
               className="vault-card__logo"
               onError={(e) => {
+                // Stage 1 → try Google S2
+                if (info.faviconFallback && e.target.src !== info.faviconFallback) {
+                  e.target.src = info.faviconFallback;
+                  return;
+                }
+                // Stage 2 → try site's own /favicon.ico
+                if (info.faviconDirect && e.target.src !== info.faviconDirect) {
+                  e.target.src = info.faviconDirect;
+                  return;
+                }
+                // Stage 3 → show letter-avatar fallback
                 e.target.style.display = "none";
                 e.target.nextSibling.style.display = "flex";
               }}

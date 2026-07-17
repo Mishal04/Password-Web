@@ -196,7 +196,20 @@ function AddPasswordModal({ isOpen, onClose, onSaveSuccess, editItem = null, onT
                     src={websiteInfo.favicon}
                     alt={websiteInfo.title}
                     className="website-logo"
-                    onError={(e) => { e.target.style.display = "none"; }}
+                    onError={(e) => {
+                      // Stage 1 → Google S2
+                      if (websiteInfo.faviconFallback && e.target.src !== websiteInfo.faviconFallback) {
+                        e.target.src = websiteInfo.faviconFallback;
+                        return;
+                      }
+                      // Stage 2 → site's own /favicon.ico
+                      if (websiteInfo.faviconDirect && e.target.src !== websiteInfo.faviconDirect) {
+                        e.target.src = websiteInfo.faviconDirect;
+                        return;
+                      }
+                      // Stage 3 → hide
+                      e.target.style.display = "none";
+                    }}
                   />
                   <span>{websiteInfo.title || formData.websiteUrl}</span>
                 </div>
