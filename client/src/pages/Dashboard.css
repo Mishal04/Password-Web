@@ -1,10 +1,33 @@
-.dashboard{
-    display:flex;
-    min-height:100vh;
-    background: var(--bg-primary);
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-primary);
 }
 
-.dashboard-content{
-    flex:1;
-    padding:40px;
+.dashboard-content {
+  flex: 1;
+  padding: 40px;
+  min-width: 0; /* prevents flex child from overflowing */
+}
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .dashboard-content {
+    padding: 28px 24px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .dashboard-content {
+    /* Reserve space for the fixed hamburger button */
+    padding: 72px 16px 24px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: 68px 12px 20px;
+  }
 }

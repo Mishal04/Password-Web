@@ -159,7 +159,7 @@ function PasswordTable({ passwords = [], onActionSuccess }) {
                 </>
               ) : (
                 <>
-                  <span className="table-text website-cell">
+                  <span className="table-text website-cell" data-label="Website">
                     {getWebsiteInfo(item.website).favicon ? (
                       <img
                         src={getWebsiteInfo(item.website).favicon}
@@ -186,9 +186,9 @@ function PasswordTable({ passwords = [], onActionSuccess }) {
                     )}
                     <span>{item.title || item.website}</span>
                   </span>
-                  <span className="table-text">{item.username}</span>
-                  <span className="table-text category-badge">{item.category}</span>
-                  <span className="table-text font-mono">
+                  <span className="table-text" data-label="Username">{item.username}</span>
+                  <span className="table-text category-badge" data-label="Category">{item.category}</span>
+                  <span className="table-text font-mono" data-label="Password">
                     {isVisible ? item.password : "••••••••••"}
                   </span>
                   <div className="actions">

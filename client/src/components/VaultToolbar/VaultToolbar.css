@@ -164,3 +164,62 @@
 [data-theme="dark"] .filter-btn:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .toolbar-search {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vault-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .toolbar-search {
+    width: 100%;
+    height: 44px;
+  }
+
+  .toolbar-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .toolbar-actions select,
+  .toolbar-sort select {
+    width: 100%;
+    height: 42px;
+  }
+
+  .toolbar-sort {
+    width: 100%;
+  }
+
+  .add-btn {
+    grid-column: 1 / -1;
+    justify-content: center;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vault-toolbar {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+
+  .toolbar-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .add-btn {
+    grid-column: auto;
+  }
+}

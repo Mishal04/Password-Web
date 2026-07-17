@@ -17,6 +17,7 @@
   min-height: 100vh;
   overflow-y: auto;
   transition: background 300ms ease;
+  min-width: 0; /* prevents flex overflow */
 }
 
 .secure-notes-content {
@@ -443,9 +444,33 @@
   background: rgba(0, 0, 0, 0.04);
 }
 
-/* ==========================================
-   DARK MODE
-========================================== */
+/* ── Responsive additions ── */
+@media (max-width: 768px) {
+  .secure-notes-content {
+    padding: 72px 16px 24px; /* 72px top = room for hamburger */
+  }
+
+  .notes-page-title {
+    font-size: 20px;
+  }
+
+  .note-modal {
+    width: 92vw;
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .secure-notes-content {
+    padding: 68px 12px 20px;
+  }
+
+  .notes-page-title {
+    font-size: 18px;
+  }
+}
+
+/* ── Existing dark mode overrides ── */
 [data-theme="dark"] .secure-notes-main {
   background: #0f1117;
 }

@@ -729,3 +729,48 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Additional responsive fixes ── */
+@media (max-width: 768px) {
+  .gen-page-header {
+    margin-bottom: 20px;
+  }
+
+  .gen-page-header h1 {
+    font-size: 20px;
+  }
+
+  .gen-card {
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+
+  .gen-display__actions {
+    gap: 8px;
+  }
+
+  .gen-btn {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gen-display__actions {
+    flex-direction: column;
+  }
+
+  .gen-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gen-page-header h1 {
+    font-size: 18px;
+  }
+
+  .gen-history__item {
+    gap: 8px;
+  }
+}
