@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "./SecureNotes.css";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Header from "../components/Header/Header";
@@ -38,8 +38,9 @@ function SecureNotes() {
   const [content, setContent] = useState("");
   const [colored, setColored] = useState("#fffae6");
 
-  // Fetch notes from API
-  const fetchNotes = async () => {
+  // Stabilised with useCallback so the effect dependency array can include it
+  // without causing an infinite loop — fixes exhaustive-deps.
+  const fetchNotes = useCallback(async () => {
     try {
       setLoading(true);
       const res = await API.get("/notes", {
@@ -53,11 +54,11 @@ function SecureNotes() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [searchQuery]);
 
   useEffect(() => {
     fetchNotes();
-  }, [searchQuery]);
+  }, [fetchNotes]);
 
   // Open modal for Add / Edit
   const openModal = (note = null) => {

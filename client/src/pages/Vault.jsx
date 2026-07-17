@@ -1,6 +1,25 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { FiLock } from "react-icons/fi";
 
+// Moved to module scope so React does not recreate the component type on every
+// Vault render — fixes no-nested-component-definition / no-unstable-nested-components.
+function SkeletonCard() {
+  return (
+    <div className="vault-skeleton-card">
+      <div className="vault-skeleton-card__top">
+        <div className="vault-skeleton__circle" />
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
+          <div className="vault-skeleton__line vault-skeleton__line--short" />
+          <div className="vault-skeleton__line vault-skeleton__line--xs"    />
+        </div>
+      </div>
+      <div className="vault-skeleton__line vault-skeleton__line--full" />
+      <div className="vault-skeleton__line vault-skeleton__line--med"  />
+      <div className="vault-skeleton__line vault-skeleton__line--short" />
+    </div>
+  );
+}
+
 import Sidebar           from "../components/Sidebar/Sidebar";
 import Header            from "../components/Header/Header";
 import VaultToolbar      from "../components/VaultToolbar/VaultToolbar";
@@ -112,22 +131,6 @@ function Vault() {
     fetchPasswords();
     closeModal();
   };
-
-  /* ─── Skeleton cards ─────────────────────────────── */
-  const SkeletonCard = () => (
-    <div className="vault-skeleton-card">
-      <div className="vault-skeleton-card__top">
-        <div className="vault-skeleton__circle" />
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
-          <div className="vault-skeleton__line vault-skeleton__line--short" />
-          <div className="vault-skeleton__line vault-skeleton__line--xs"    />
-        </div>
-      </div>
-      <div className="vault-skeleton__line vault-skeleton__line--full" />
-      <div className="vault-skeleton__line vault-skeleton__line--med"  />
-      <div className="vault-skeleton__line vault-skeleton__line--short" />
-    </div>
-  );
 
   /* ─── Render ─────────────────────────────────────── */
   return (
